@@ -81,6 +81,7 @@ class DestinationTests(unittest.TestCase):
             asset_position=7,
             file_stem="very long file name " * 5,
             suffix=".jpg",
+            max_length=248,
         )
         self.assertLessEqual(len(str(path)), 248)
         self.assertTrue(path.parent.name.startswith("0012_"), path.parent.name)

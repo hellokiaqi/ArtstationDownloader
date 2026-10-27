@@ -1,4 +1,5 @@
 import hashlib
+import os
 import tempfile
 import threading
 import unittest
@@ -212,12 +213,17 @@ class DownloaderTests(unittest.TestCase):
                     raise AssertionError("a moved file must not be downloaded again")
 
             downloader = LocalDownloader(NoDownloadClient(), output, dry_run=False)
+            foreign = (
+                r"\\wsl.localhost\Ubuntu-22.04\home\someone\downloads\artist\0001_A project\001_image.jpg"
+                if os.name == "nt"
+                else "/mnt/other-machine/downloads/artist/0001_A project/001_image.jpg"
+            )
             downloader.state.upsert(
                 {
                     "asset_key": asset.key,
                     "profile": "artist",
                     "status": "completed",
-                    "path": r"\\wsl.localhost\Ubuntu-22.04\home\someone\downloads\artist\0001_A project\001_image.jpg",
+                    "path": foreign,
                 }
             )
 

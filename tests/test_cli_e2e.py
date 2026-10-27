@@ -243,7 +243,7 @@ class CliEndToEndTests(unittest.TestCase):
         os.environ["ARTSTATION_API_BASE"] = "http://127.0.0.1:1"
         code, output = self._run("--retries", "0")
         self.assertEqual(code, 2)
-        self.assertIn("Error", output)
+        self.assertIn("request failed for", output)
         self.assertNotIn("Traceback", output)
 
 
