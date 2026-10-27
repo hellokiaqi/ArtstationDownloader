@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "artstation-local-downloader"
+version = "0.3.0"
+description = "Local, rate-limited ArtStation portfolio image downloader with resumable state"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{name = "ArtStation Local Downloader contributors"}]
+keywords = ["artstation", "downloader", "portfolio", "images"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: End Users/Desktop",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Internet :: WWW/HTTP",
+]
+dependencies = ["playwright>=1.42,<2"]
+
+[project.optional-dependencies]
+dev = [
+    "build>=1.2,<2",
+    "ruff>=0.6,<1",
+]
+
+[project.scripts]
+artstation-dl = "artstation_downloader.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["artstation_downloader*"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 110
+extend-exclude = ["downloads", "downloads-*", ".tools", ".venv"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "W", "I", "B", "UP"]
