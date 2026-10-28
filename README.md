@@ -1,5 +1,9 @@
 # ArtStation Local Downloader
 
+[![CI](https://github.com/hellokiaqi/ArtstationDownloader/actions/workflows/ci.yml/badge.svg)](https://github.com/hellokiaqi/ArtstationDownloader/actions/workflows/ci.yml)
+[![Python](https://img.shields.io/badge/python-3.10%2B-3776ab)](https://www.python.org/)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+
 一个本地运行的 ArtStation 公开作品集图片下载器。输入用户名或主页链接后，程序会枚举公开 Portfolio 项目，下载其中的图片，并保存可续跑的状态和清单。
 
 ## 特性
